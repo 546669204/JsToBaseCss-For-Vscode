@@ -1,0 +1,74 @@
+{
+    "name": "jstobasecss-for-vscode",
+    "displayName": "jstobasecss for vscode",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "Xiaoming",
+    "engines": {
+        "vscode": "^1.17.2"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ], 
+    "main": "./extension",
+    "contributes": {
+        "configuration": {
+			"type": "object",
+			"title": "JsToBaseCss configuration",
+			"properties": {
+				"jstobasecss.compileAfterSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "open save auto compile"
+				},
+				"jstobasecss.excludeRegex": {
+					"type": "string",
+					"default": ".+\\.asp",
+					"description": "file type RegExp"
+				},
+				"jstobasecss.child": {
+					"type": "boolean",
+					"default": true,
+					"description": "is no find child dir"
+				},
+				"jstobasecss.ignoreDir":{
+					"type":"array",
+					"default":[
+						"web1",
+						"web_img",
+						"1/index.htm"
+					],
+					"description": "Input Ignore Dir or File  "
+				},
+				"jstobasecss.outDir":{
+					"type":"string",
+					"default":"css",
+					"description": "Out File Dir Name"
+				},
+				"jstobasecss.outFile":{
+					"type":"string",
+					"default":"basecss.css",
+					"description": "Out File Name"
+				}
+			}
+		},
+        "commands": [{
+            "command": "jstobasecss.compileall",
+            "title": "Js To BaseCss Compile All"
+        }]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.6.1",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
