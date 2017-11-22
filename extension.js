@@ -7,20 +7,7 @@ var jstobasecssExtension = function() {
     var outputChannel;
     var rootPath = "";
     var ignore = [];
-    var rule ={
-		'^bg-(\\w*)$':["background-color:#{$$}"],
-		'^color-(\\w*)$':["color:#{$$}"],
-		'^ml-(\\w*)$':["margin-left:{$$}px"],
-		'^mr-(\\w*)$':["margin-right:{$$}px"],
-		'^mt-(\\w*)$':["margin-top:{$$}px"],
-		'^mb-(\\w*)$':["margin-bottom:{$$}px"],
-		'^padding-(\\w*)$':["padding:{$$}px"],
-		'^pl-(\\w*)$':["padding-left:{$$}px"],
-		'^pr-(\\w*)$':["padding-right:{$$}px"],
-		'^pt-(\\w*)$':["padding-top:{$$}px"],
-		'^pb-(\\w*)$':["padding-bottom:{$$}px"],
-		'^fs-(\\w*)$':["font-size:{$$}px"],
-	};
+    var rule ={};
     outputChannel = vscode.window.createOutputChannel("JsToBaseCss");
 
     Array.prototype.unique = function(){
@@ -93,6 +80,7 @@ var jstobasecssExtension = function() {
             var configuration = vscode.workspace.getConfiguration('jstobasecss');
             ignore = configuration.ignoreDir;
             rootPath = vscode.workspace.rootPath;
+            rule = configuration.rule;
             var filea = [];
             if (configuration.child){
                 filea = ChildReadDirSync(rootPath);

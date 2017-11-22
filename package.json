@@ -52,6 +52,24 @@
 					"type":"string",
 					"default":"basecss.css",
 					"description": "Out File Name"
+				},
+				"jstobasecss.rule":{
+					"type":"object",
+					"default":{
+						"^bg-(\\w*)$":["background-color:#{$$}"],
+						"^color-(\\w*)$":["color:#{$$}"],
+						"^ml-(\\w*)$":["margin-left:{$$}px"],
+						"^mr-(\\w*)$":["margin-right:{$$}px"],
+						"^mt-(\\w*)$":["margin-top:{$$}px"],
+						"^mb-(\\w*)$":["margin-bottom:{$$}px"],
+						"^padding-(\\w*)$":["padding:{$$}px"],
+						"^pl-(\\w*)$":["padding-left:{$$}px"],
+						"^pr-(\\w*)$":["padding-right:{$$}px"],
+						"^pt-(\\w*)$":["padding-top:{$$}px"],
+						"^pb-(\\w*)$":["padding-bottom:{$$}px"],
+						"^fs-(\\w*)$":["font-size:{$$}px"]
+					},
+					"description": "class to style rule"
 				}
 			}
 		},
